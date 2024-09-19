@@ -8,7 +8,7 @@ module Petergate
       module ClassMethods
         def petergate(roles: [:admin], multiple: true)
           if multiple
-            serialize :roles
+            serialize :roles, coder: JSON
             after_initialize do
               self[:roles] ||= [:user]
             end
